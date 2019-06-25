@@ -34,22 +34,23 @@ class LinkedList {
         let previous = null;
         let i = 0;
 
-        if(this[head] === null){
+        if(this[head] === null){ //if list is empty, make new value "head"
             this[head] = newNode;
-            return this[head];
+            this.size++
         };
 
-        if(index === 0){
-            current = newNode;
+        if(index === 0){ //if index is 0 (probably not only item, but if it is then the first "if" statement will catch it)
+            current = newNode; 
             current.next = this[head];
             this[head] = current;
+            this.size++;
         };
 
         if(index > 0 && index > this.size - 1){
             while(i < index){
-                i++;
                 previous = current;
                 current = current.next;
+                i++;
             };
             newNode.next = current;
             previous.next = newNode;
