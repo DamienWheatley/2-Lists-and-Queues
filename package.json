@@ -1,0 +1,24 @@
+{
+  "name": "2listsandqueues",
+  "version": "1.0.0",
+  "description": "",
+  "main": "SinglyLinkedList.js",
+  "scripts": {
+    "test": "mocha --require @babel/register 'test/**.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DamienWheatley/2-Lists-and-Queues.git"
+  },
+  "author": "Damien Wheatley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DamienWheatley/2-Lists-and-Queues/issues"
+  },
+  "homepage": "https://github.com/DamienWheatley/2-Lists-and-Queues#readme",
+  "devDependencies": {
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}

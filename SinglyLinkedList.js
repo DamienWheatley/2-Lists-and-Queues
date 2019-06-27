@@ -5,7 +5,7 @@ class LinkedListNode {
         this.data = data; //value 
         this.next = null; //next item
     };
-};
+}
 
 class LinkedList {
     constructor(){
@@ -38,7 +38,7 @@ class LinkedList {
         if(this[head] === null){ //if list is empty, make new value "head"
             this[head] = newNode;
             this.size++;
-            return `The list was empty, so ${data} was added to the start of the list.`
+            return `The list was empty, so ${data} was added to the start of the list.`;
         };
 
         if(index === 0){ //if index is 0 (probably not only item, but if it is then the first "if" statement will catch it)
@@ -119,7 +119,7 @@ class LinkedList {
             current = current.next;
         };
     };
-};
+}
 
 let newLinkedList = new LinkedList;
 let allItems = [...newLinkedList.displayAllValuesInList()];
@@ -138,3 +138,8 @@ allItems = [...newLinkedList.displayAllValuesInList()];
 newLinkedList.addItemToListAtIndex(0,99);
 allItems = [...newLinkedList.displayAllValuesInList()];
 console.log(allItems);
+
+module.exports.LinkedList = LinkedList;
+module.exports.LinkedListNode = LinkedListNode;
+
+console.log(newLinkedList.size)
