@@ -18,6 +18,7 @@ class LinkedList {
 
         if(this[head] === null){            
             this[head] = newNode; //if there is no value at the head of the list, assign the new node to "head"
+            this.size++;
         } else {
             let current = this[head];
             while(current.next !== null){ //otherwise follow the list through to the last item (next item will always be null) ...
@@ -36,7 +37,8 @@ class LinkedList {
 
         if(this[head] === null){ //if list is empty, make new value "head"
             this[head] = newNode;
-            this.size++
+            this.size++;
+            return `The list was empty, so ${data} was added to the start of the list.`
         };
 
         if(index === 0){ //if index is 0 (probably not only item, but if it is then the first "if" statement will catch it)
@@ -46,8 +48,8 @@ class LinkedList {
             this.size++;
         };
 
-        if(index > 0 && index > this.size - 1){
-            while(i < index){
+        if(index > 0){
+            while(i < index && current !== null){
                 previous = current;
                 current = current.next;
                 i++;
@@ -94,7 +96,7 @@ class LinkedList {
         let previous = null;
         let i = 0;
 
-        while(current !== null && i < index){ //when we reach the given index and it's not null
+        while(current !== null && i < index ){ //when we reach the given index and it's not null
             previous = current; //set previous as the current item 
             current = current.next; //current item moves to the next item
             i++;
@@ -122,17 +124,17 @@ class LinkedList {
 let newLinkedList = new LinkedList;
 let allItems = [...newLinkedList.displayAllValuesInList()];
 
-newLinkedList.addItemToEndOfList(23);
+//newLinkedList.addItemToEndOfList(23);
 newLinkedList.addItemToEndOfList(102);
 
-newLinkedList.addItemToEndOfList(76);
+// newLinkedList.addItemToEndOfList(76);
 allItems = [...newLinkedList.displayAllValuesInList()];
-console.log(allItems);
+// console.log(allItems);
 
-newLinkedList.addItemToEndOfList(2);
-allItems = [...newLinkedList.displayAllValuesInList()];
-console.log(allItems);
+// newLinkedList.addItemToEndOfList(2);
+// allItems = [...newLinkedList.displayAllValuesInList()];
+// console.log(allItems);
 
-console.log(newLinkedList.addItemToListAtIndex(5,99));
+newLinkedList.addItemToListAtIndex(0,99);
 allItems = [...newLinkedList.displayAllValuesInList()];
 console.log(allItems);
