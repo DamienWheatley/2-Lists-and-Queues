@@ -10,7 +10,6 @@ class LinkedListNode {
 class LinkedList {
     constructor(){
         this[head] = null; //linked list contains only the first value
-        this.size = 0;
     }
 
     addItemToEndOfList(data){ //function to add item to the end of the list
@@ -18,14 +17,12 @@ class LinkedList {
 
         if(this[head] === null){            
             this[head] = newNode; //if there is no value at the head of the list, assign the new node to "head"
-            this.size++;
         } else {
             let current = this[head];
             while(current.next !== null){ //otherwise follow the list through to the last item (next item will always be null) ...
                 current = current.next;
             };
             current.next = newNode; //... and create the new item 
-            this.size++;
         };
     };
 
@@ -37,7 +34,6 @@ class LinkedList {
 
         if(this[head] === null){ //if list is empty, make new value "head"
             this[head] = newNode;
-            this.size++;
             return `The list was empty, so ${data} was added to the start of the list.`;
         };
 
@@ -45,7 +41,6 @@ class LinkedList {
             current = newNode; 
             current.next = this[head];
             this[head] = current;
-            this.size++;
         };
 
         if(index > 0){
@@ -56,7 +51,6 @@ class LinkedList {
             };
             newNode.next = current;
             previous.next = newNode;
-            this.size++;
         } else {
             return `Index ${index} does not exist in this list`;
         };
@@ -88,7 +82,6 @@ class LinkedList {
         if(index === 0){ //if index is first item
             const data = this[head].data; //store "head" data
             this[head] = this[head].next; //set "head" as next item
-            this.size--;
             return `Removed the first item in the list containing: ${data}`;
         };
             
@@ -104,7 +97,6 @@ class LinkedList {
 
         if(current !== null){
             previous.next = current.next; //previous.next is the item to be deleted, so we replace it with the item after the item to be deleted
-            this.size--;
             return `Removed item from index ${index} containing: ${current.data}`;
         };
 
@@ -118,6 +110,11 @@ class LinkedList {
             yield current.data;
             current = current.next;
         };
+    };
+
+    getLength(){
+        let allItems = [...newLinkedList.displayAllValuesInList()];
+        return allItems.length;
     };
 }
 
@@ -138,8 +135,5 @@ allItems = [...newLinkedList.displayAllValuesInList()];
 newLinkedList.addItemToListAtIndex(0,99);
 allItems = [...newLinkedList.displayAllValuesInList()];
 console.log(allItems);
-
 module.exports.LinkedList = LinkedList;
 module.exports.LinkedListNode = LinkedListNode;
-
-console.log(newLinkedList.size)
